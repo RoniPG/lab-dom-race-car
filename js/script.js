@@ -1,37 +1,44 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
-  const game = new Game();
+  let game;
 
   startButton.addEventListener("click", function () {
     startGame();
   });
 
   function startGame() {
-    game.start();
     console.log("start game");
+    game = new Game();
+    game.start();
   }
 
   window.addEventListener('keydown', (event) => {
-    const left = 37;
-    const up = 38;
-    const right = 39;
-    const down = 40;
-    switch (event.keyCode) {
-      case left:
-        game.player.directionX -= 1;
-        break;
-      case up:
-        game.player.directionY -= 1;
-        break;
-      case right:
-        game.player.directionX += 1;
-        break;
-      case down:
-        game.player.directionY += 1;
-        break;
-      default:
-        break;
+    const key = event.keyCode;
+    const possibleKeyStrokes = [
+      37,
+      38,
+      39,
+      40,
+    ];
+    if (possibleKeyStrokes.includes(key)) {
+      event.preventDefault();
+      switch (event.keyCode) {
+        case 37:
+          game.player.directionX -= 1;
+          break;
+        case 38:
+          game.player.directionY -= 1;
+          break;
+        case 39:
+          game.player.directionX += 1;
+          break;
+        case 40:
+          game.player.directionY += 1;
+          break;
+        default:
+          break;
+      }
     }
   })
 };

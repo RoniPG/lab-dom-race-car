@@ -7,6 +7,10 @@ window.onload = function () {
     startGame();
   });
 
+  restartButton.addEventListener("click", () => {
+    location.reload();
+  });
+
   function startGame() {
     console.log("start game");
     game = new Game();

@@ -1,4 +1,4 @@
-class player {
+class Player {
     constructor(gameScreen, left, top, width, height, url) {
         this.gameScreen = gameScreen;
         this.left = left;

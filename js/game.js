@@ -15,8 +15,8 @@ class Game {
         this.gameLoopFrecuency = Math.round(1000/60);
     }
     start() {
-        this.gameScreen.style.height = this.height;
-        this.gameScreen.style.width = this.width;
+        this.gameScreen.style.height = `${this.height}px`;
+        this.gameScreen.style.width = `${this.width}px`;
         this.startScreen.style.display = 'none';
         this.gameScreen.style.display = 'block';
         this.gameIntervalId = setInterval(() => {
